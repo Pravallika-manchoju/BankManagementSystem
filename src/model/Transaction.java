@@ -2,6 +2,7 @@ package model;
 import java.time.LocalDateTime;
 
 public class Transaction {
+
     private int transactionId;
     private int fromAccount;
     private int toAccount;
@@ -9,13 +10,19 @@ public class Transaction {
     private String type;
     private LocalDateTime dateTime;
 
-    public Transaction(int transactionId,int fromAccount,int toAccount,double amount,String type) {
+    // Constructor for creating a new transaction
+    public Transaction(int transactionId, int fromAccount, int toAccount, double amount, String type) {
+        this(transactionId, fromAccount, toAccount, amount, type, LocalDateTime.now());
+    }
+
+    // Constructor for restoring a transaction from a file
+    public Transaction(int transactionId, int fromAccount, int toAccount, double amount, String type, LocalDateTime dateTime) {
         this.transactionId = transactionId;
         this.fromAccount = fromAccount;
         this.toAccount = toAccount;
         this.amount = amount;
         this.type = type;
-        this.dateTime = LocalDateTime.now();
+        this.dateTime = dateTime;
     }
 
     public int getTransactionId() {
