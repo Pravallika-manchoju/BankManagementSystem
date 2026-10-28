@@ -6,6 +6,7 @@ import service.BankService;
 import storage.CollectionBankRepository;
 import view.consoleView;
 import storage.FileBankRepository;
+import storage.PostgreSQLBankRepository;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,8 +24,9 @@ public class Main {
                     view.showMessage("JSON file storage selected");
                     break;
                 case 3:
-                    view.showMessage( "PostgreSQL storage is not implemented yet.");
-                    continue;
+                	repository = new PostgreSQLBankRepository();
+                    view.showMessage("PostgreSQL storage selected.");
+                    break;
                 case 0:
                     view.showMessage("Application closed.");
                     return;
